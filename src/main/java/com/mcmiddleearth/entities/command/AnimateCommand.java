@@ -47,8 +47,8 @@ public class AnimateCommand extends McmeEntitiesCommandHandler {
                 counter++;
             }
         }
-        sender.sendMessage(new ComponentBuilder("Displaying frame "+frameId+" of animation "+animation+" for "
-                                                     +counter+" entities.").create());
+        sender.sendMessage("Displaying frame "+frameId+" of animation "+animation+" for "
+                                                     +counter+" entities.");
         return 0;
     }
 
@@ -67,14 +67,14 @@ public class AnimateCommand extends McmeEntitiesCommandHandler {
             }
         });
         if(animationId.equals("auto")) {
-            sender.sendMessage(new ComponentBuilder("Setting automated animation mode." + " for "
-                    + player.getSelectedEntities().size() + " entities.").create());
+            sender.sendMessage("Setting automated animation mode." + " for "
+                    + player.getSelectedEntities().size() + " entities.");
         } else if(animationId.equals("manual")) {
-                sender.sendMessage(new ComponentBuilder("Setting manual animation mode."+" for "
-                        +player.getSelectedEntities().size()+" entities.").create());
+                sender.sendMessage("Setting manual animation mode."+" for "
+                        +player.getSelectedEntities().size()+" entities.");
         } else {
-            sender.sendMessage(new ComponentBuilder("Playing animation " + animationId+" for "
-                    +player.getSelectedEntities().size()+" entities.").create());
+            sender.sendMessage("Playing animation " + animationId+" for "
+                    +player.getSelectedEntities().size()+" entities.");
         }
         return 0;
     }

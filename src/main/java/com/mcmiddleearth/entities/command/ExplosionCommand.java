@@ -52,12 +52,12 @@ public class ExplosionCommand extends McmeEntitiesCommandHandler {
                 Particle particle = Particle.valueOf(particleName.toUpperCase());
                 explosion.setParticle(particle);
             } catch (IllegalArgumentException ex) {
-                sender.sendMessage(new ComponentBuilder("Could not parse particle name!").color(ChatColor.RED).create());
+                sender.sendMessage("Could not parse particle name!");
             }
         }
         explosion.addUnaffected(((RealPlayer)sender));
         explosion.setDamager(((RealPlayer)sender));
-        sender.sendMessage(new ComponentBuilder("Creating explosion...").color(ChatColor.GREEN).create());
+        sender.sendMessage("Creating explosion...");
         explosion.explode();
         return 0;
     }

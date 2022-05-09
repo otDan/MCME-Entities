@@ -49,17 +49,17 @@ public class LoadCommand extends McmeEntitiesCommandHandler {
                 counter++;
             }
             reader.endArray();
-            sender.sendMessage(new ComponentBuilder(counter+" entities loaded.").create());
+            sender.sendMessage(counter+" entities loaded.");
         } catch (FileNotFoundException e) {
-            sender.sendMessage(new ComponentBuilder("File not found.").color(ChatColor.RED).create());
+            sender.sendMessage("File not found.");
         } catch (IOException e) {
-            sender.sendMessage(new ComponentBuilder("File input error.").color(ChatColor.RED).create());
+            sender.sendMessage("File input error.");
         } catch (IllegalArgumentException ex) {
-            sender.sendMessage(new ComponentBuilder(ex.getMessage()).color(ChatColor.RED).create());
+            sender.sendMessage(ex.getMessage());
         } catch (InvalidDataException e) {
-            sender.sendMessage(new ComponentBuilder("Invalid entity data in file.").color(ChatColor.RED).create());
+            sender.sendMessage("Invalid entity data in file.");
         } catch (InvalidLocationException e) {
-            sender.sendMessage(new ComponentBuilder("Invalid location data in file.").color(ChatColor.RED).create());
+            sender.sendMessage("Invalid location data in file.");
         }
         return 0;
     }

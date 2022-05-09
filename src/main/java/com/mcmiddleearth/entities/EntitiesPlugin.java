@@ -107,7 +107,7 @@ public final class EntitiesPlugin extends JavaPlugin {
 
     private void setExecutor(String command, CommandExecutor executor) {
         PluginCommand pluginCommand = Bukkit.getServer().getPluginCommand(command);
-        if(pluginCommand!=null) {
+        if(pluginCommand != null) {
             pluginCommand.setExecutor(executor);
             if (executor instanceof TabCompleter)
                 pluginCommand.setTabCompleter((TabCompleter) executor);
@@ -119,7 +119,7 @@ public final class EntitiesPlugin extends JavaPlugin {
         if(sender instanceof Player) {
             return getEntityServer().getPlayerProvider().getOrCreateMcmePlayer((Player) sender);
         } else if(sender instanceof ConsoleCommandSender) {
-            return new BukkitCommandSender((ConsoleCommandSender)sender);
+            return new BukkitCommandSender(sender);
         }
         return null;
     }

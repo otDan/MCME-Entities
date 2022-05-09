@@ -64,33 +64,33 @@ public class SetCommand extends McmeEntitiesCommandHandler {
                 if(entity instanceof SimpleHorse) {
                     if(itemMaterial.equalsIgnoreCase("saddle")) {
                         ((SimpleHorse)entity).setSaddled(true);
-                        sender.sendMessage(new ComponentBuilder("Entity saddled.").color(ChatColor.GREEN).create());
+                        sender.sendMessage("Entity saddled.");
                     } else {
                         ((SimpleHorse)entity).setSaddled(false);
-                        sender.sendMessage(new ComponentBuilder("Entity unsaddled.").color(ChatColor.GREEN).create());
+                        sender.sendMessage("Entity unsaddled.");
                     }
                 } else {
-                    sender.sendMessage(new ComponentBuilder("Not implemented for custom entities.").color(ChatColor.RED).create());
+                    sender.sendMessage("Not implemented for custom entities.");
                 }
             } else {
                 EquipmentSlot slot = EquipmentSlot.HAND;
                 try {
                     slot = EquipmentSlot.valueOf(slotName.toUpperCase());
                 } catch (IllegalArgumentException ex) {
-                    sender.sendMessage(new ComponentBuilder("Can't parse equipment slot. Using main hand.").color(ChatColor.RED).create());
+                    sender.sendMessage("Can't parse equipment slot. Using main hand.");
                 }
                 Material material = Material.LEATHER_CHESTPLATE;
                 try {
                     material = Material.valueOf(itemMaterial.toUpperCase());
                 } catch (IllegalArgumentException ex) {
-                    sender.sendMessage(new ComponentBuilder("Can't parse item material. Using leather chest plate.").color(ChatColor.RED).create());
+                    sender.sendMessage("Can't parse item material. Using leather chest plate.");
                 }
                 ItemStack item = new ItemStack(material);
                 ((VirtualEntity) entity).setEquipment(slot, item);
-                sender.sendMessage(new ComponentBuilder(slot.name().toLowerCase() + " item set to " + material.name().toLowerCase() + ".").color(ChatColor.GREEN).create());
+                sender.sendMessage(slot.name().toLowerCase() + " item set to " + material.name().toLowerCase() + ".");
             }
         } else {
-            sender.sendMessage(new ComponentBuilder("You need to select an entity first!").color(ChatColor.RED).create());
+            sender.sendMessage("You need to select an entity first!");
         }
         return 0;
     }
@@ -109,17 +109,17 @@ public class SetCommand extends McmeEntitiesCommandHandler {
                 }
                 if(attribute!=null) {
                     attribute.setBaseValue(value);
-                    sender.sendMessage(new ComponentBuilder("Attribute '"+type+"' set to "+value).create());
+                    sender.sendMessage("Attribute '"+type+"' set to "+value);
                 } else {
-                    sender.sendMessage(new ComponentBuilder("Attribute not found!").color(ChatColor.RED).create());
+                    sender.sendMessage("Attribute not found!");
                 }
             } else {
-                sender.sendMessage(new ComponentBuilder("You need to select an entity first!").color(ChatColor.RED).create());
+                sender.sendMessage("You need to select an entity first!");
             }
         } catch(NumberFormatException ex) {
-            sender.sendMessage(new ComponentBuilder("Attribute value must be  a decimal number!").color(ChatColor.RED).create());
+            sender.sendMessage("Attribute value must be  a decimal number!");
         } catch(IllegalArgumentException ex) {
-            sender.sendMessage(new ComponentBuilder("Invalid attribute type!").color(ChatColor.RED).create());
+            sender.sendMessage("Invalid attribute type!");
         }
         return 0;
     }
@@ -128,9 +128,9 @@ public class SetCommand extends McmeEntitiesCommandHandler {
         McmeEntity entity = ((BukkitCommandSender)source).getSelectedEntities().stream().findFirst().orElse(null);
         if(entity instanceof VirtualEntity) {
             ((VirtualEntity)entity).setDisplayName(displayname);
-            source.sendMessage(new ComponentBuilder("Set display name to: "+displayname).create());
+            source.sendMessage("Set display name to: "+displayname);
         } else {
-            source.sendMessage(new ComponentBuilder("You need to select an entity first!").color(ChatColor.RED).create());
+            source.sendMessage("You need to select an entity first!");
         }
         return 0;
     }
@@ -142,9 +142,9 @@ public class SetCommand extends McmeEntitiesCommandHandler {
             McmeEntity mcmeEntity = player.getSelectedEntities().stream().findFirst().orElse(null);
             if(!(mcmeEntity instanceof VirtualEntity)) {
                 if(mcmeEntity == null) {
-                    sender.sendMessage(new ComponentBuilder("You need to select at least one entity to apply the goal to.").create());
+                    sender.sendMessage("You need to select at least one entity to apply the goal to.");
                 } else {
-                    sender.sendMessage(new ComponentBuilder("Goals can be applied at virtual entities only.").create());
+                    sender.sendMessage("Goals can be applied at virtual entities only.");
                 }
                 return 0;
             }
@@ -157,11 +157,11 @@ public class SetCommand extends McmeEntitiesCommandHandler {
                     .withCheckpoints(player.getSelectedPoints().toArray(new Location[0]));
             entity.setGoal(factory.build(entity));
         } catch (IllegalArgumentException ex) {
-            sender.sendMessage(new ComponentBuilder("Invalid goal type!").create());
+            sender.sendMessage("Invalid goal type!");
         } catch (InvalidLocationException e) {
-            sender.sendMessage(new ComponentBuilder("Invalid location. All location must be same world!").create());
+            sender.sendMessage("Invalid location. All location must be same world!");
         } catch (InvalidDataException e) {
-            sender.sendMessage(new ComponentBuilder(e.getMessage()).create());
+            sender.sendMessage(e.getMessage());
         }
         return 0;
         /*

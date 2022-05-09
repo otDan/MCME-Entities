@@ -33,8 +33,8 @@ public class BukkitCommandSender implements McmeCommandSender {
     }
 
     @Override
-    public void sendMessage(BaseComponent[] baseComponents) {
-        sender.sendMessage(new ComponentBuilder("[Entities] ").color(ChatColor.AQUA).append(baseComponents[0]).create());
+    public void sendMessage(String string) {
+        sender.sendMessage("[Entities] " + string);
     }
 
     public CommandSender getCommandSender() {

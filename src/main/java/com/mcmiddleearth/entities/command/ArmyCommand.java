@@ -81,15 +81,15 @@ public class ArmyCommand extends McmeEntitiesCommandHandler {
                 try {
                     ((BukkitCommandSender) sender).addToSelectedEntities(EntityAPI.spawnEntity(factory));
                 } catch (InvalidLocationException e) {
-                    sender.sendMessage(new ComponentBuilder("Can't spawn because of invalid or missing location!").create());
+                    sender.sendMessage("Can't spawn because of invalid or missing location!");
                 } catch (InvalidDataException e) {
-                    sender.sendMessage(new ComponentBuilder(e.getMessage()).create());
+                    sender.sendMessage(e.getMessage());
                 }
                 factory.withLocation(factory.getLocation().add(new Vector(0, 0, 2)));
                 counter++;
             }
         }
-        sender.sendMessage(new ComponentBuilder((counter) + " entities spawned.").create());
+        sender.sendMessage((counter) + " entities spawned.");
         return 0;
     }
 }

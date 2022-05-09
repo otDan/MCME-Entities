@@ -48,7 +48,7 @@ public class RemoveCommand extends McmeEntitiesCommandHandler {
             entities =  ((BukkitCommandSender) sender).getSelectedEntities();
         }
         EntityAPI.removeEntity(entities);
-        sender.sendMessage(new ComponentBuilder(entities.size()+" entities removed.").create());
+        sender.sendMessage(entities.size()+" entities removed.");
         return 0;
     }
 

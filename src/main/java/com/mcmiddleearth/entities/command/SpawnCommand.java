@@ -74,10 +74,10 @@ public class SpawnCommand extends McmeEntitiesCommandHandler {
 //if(attackSpeed!=null) Logger.getGlobal().info("vspawn command: Attack speed: "+attackSpeed.getBaseValue()+" -> "+attackSpeed.getValue());
         Location loc = factory.getLocation();
         McmeEntity spawnLocationEntity = factory.getSpawnLocationEntity();
-        if(type.equalsIgnoreCase("arrow") && factory.getGoalFactory()!=null) {
-            if(factory.getGoalFactory().getTargetEntity()!=null) {
+        if(type.equalsIgnoreCase("arrow") && factory.getGoalFactory() != null) {
+            if(factory.getGoalFactory().getTargetEntity() != null) {
                 Projectile.takeAim(factory, factory.getGoalFactory().getTargetEntity().getLocation());
-            } else if(factory.getGoalFactory().getTargetLocation()!=null) {
+            } else if(factory.getGoalFactory().getTargetLocation() != null) {
                 Projectile.takeAim(factory, factory.getGoalFactory().getTargetLocation());
             }
         }
@@ -89,11 +89,11 @@ public class SpawnCommand extends McmeEntitiesCommandHandler {
                 entityGoal.addHeadGoal(new HeadGoalWatch((RealPlayer) sender, entity));
             }*/
             ((BukkitCommandSender)sender).setSelectedEntities(entity);
-            sender.sendMessage(new ComponentBuilder("Spawning: " + type).create());
+            sender.sendMessage("Spawning: " + type);
         } catch (InvalidLocationException e) {
-            sender.sendMessage(new ComponentBuilder("Can't spawn because of invalid or missing location!").create());
+            sender.sendMessage("Can't spawn because of invalid or missing location!");
         } catch (InvalidDataException e) {
-            sender.sendMessage(new ComponentBuilder(e.getMessage()).create());
+            sender.sendMessage(e.getMessage());
         }
         factory.withLocation(loc).withEntityForSpawnLocation(spawnLocationEntity);
         return 0;

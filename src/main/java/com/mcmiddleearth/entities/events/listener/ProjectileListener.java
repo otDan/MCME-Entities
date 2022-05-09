@@ -41,13 +41,13 @@ public class ProjectileListener implements Listener {
                 .withShooter(shooter)
                 .withProjectileVelocity((float)projectile.getVelocity().length())
                 .withProjectileDamage((float)damage)
-                .withKnockBackBase((float)knockback)
+                .withKnockBackBase((float) knockback)
                 .withKnockBackPerDamage(0)
                 .withWhitelist(Collections.singleton(UUID.randomUUID()))
                 .withDependingEntity(projectile);
         try {
             EntitiesPlugin.getEntityServer().spawnEntity(factory);
-        } catch (InvalidLocationException | InvalidDataException e) {
+        } catch (InvalidLocationException | InvalidDataException | NullPointerException e) {
             e.printStackTrace();
         }
         //event.setCancelled(true);

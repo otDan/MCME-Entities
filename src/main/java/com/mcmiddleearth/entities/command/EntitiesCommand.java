@@ -20,13 +20,13 @@ public class EntitiesCommand extends McmeEntitiesCommandHandler {
                 .then(HelpfulLiteralBuilder.literal("reload")
                         .executes(context -> {
                             EntitiesPlugin.getInstance().reloadConfig();
-                            context.getSource().sendMessage(new ComponentBuilder("Configuration reloaded!").create());
+                            context.getSource().sendMessage("Configuration reloaded!");
                             return 0;
                         }))
                 .then(HelpfulLiteralBuilder.literal("restart")
                         .executes(context -> {
                             EntitiesPlugin.getInstance().restartServer();
-                            context.getSource().sendMessage(new ComponentBuilder("Entities server restarted!").create());
+                            context.getSource().sendMessage("Entities server restarted!");
                             return 0;
                         }));
         return commandNodeBuilder;

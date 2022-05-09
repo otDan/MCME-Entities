@@ -72,7 +72,7 @@ public class FactoryCommand extends McmeEntitiesCommandHandler {
                 try {
                     factory.withUuid(UUID.fromString(value));
                 } catch (IllegalArgumentException ex) {
-                    sender.sendMessage(new ComponentBuilder("Invalid input! Could not parse UUID!").create());
+                    sender.sendMessage("Invalid input! Could not parse UUID!");
                 }
                 break;
             case "name":
@@ -88,7 +88,7 @@ public class FactoryCommand extends McmeEntitiesCommandHandler {
                 try {
                     factory.withDisplayNamePosition(parseVector(((RealPlayer)player).getBukkitPlayer(), value));
                 } catch (IllegalArgumentException ex) {
-                    sender.sendMessage(new ComponentBuilder("Invalid input! Could not parse display name position!").color(ChatColor.RED).create());
+                    sender.sendMessage("Invalid input! Could not parse display name position!");
                 }
                 break;
             case "location":
@@ -99,7 +99,7 @@ public class FactoryCommand extends McmeEntitiesCommandHandler {
                         factory.withLocation(parseLocation(((RealPlayer) player).getBukkitPlayer(), value));
                     }
                 } catch (IllegalArgumentException ex) {
-                    sender.sendMessage(new ComponentBuilder("Invalid input! Could not parse location!").color(ChatColor.RED).create());
+                    sender.sendMessage("Invalid input! Could not parse location!");
                 }
                 break;
             case "movementtype":
@@ -107,14 +107,14 @@ public class FactoryCommand extends McmeEntitiesCommandHandler {
                     factory.withMovementType(MovementType.valueOf(value.toUpperCase()));
 //Logger.getGlobal().info("Factory: "+factory);
                 } catch (IllegalArgumentException ex) {
-                    sender.sendMessage(new ComponentBuilder("Invalid input! Could not parse movement type").color(ChatColor.RED).create());
+                    sender.sendMessage("Invalid input! Could not parse movement type");
                 }
                 break;
             case "goaltype":
                 try {
                     getOrCreateGoalFactory(factory).withGoalType(GoalType.valueOf(value.toUpperCase()));
                 } catch (IllegalArgumentException ex) {
-                    sender.sendMessage(new ComponentBuilder("Invalid input! Could not parse goal type").color(ChatColor.RED).create());
+                    sender.sendMessage("Invalid input! Could not parse goal type");
                 }
                 break;
             case "loop":
@@ -158,14 +158,14 @@ public class FactoryCommand extends McmeEntitiesCommandHandler {
                             break;
                     }
                 } catch (IllegalArgumentException ex) {
-                    sender.sendMessage(new ComponentBuilder("Invalid input! Could not parse head goal type!").color(ChatColor.RED).create());
+                    sender.sendMessage("Invalid input! Could not parse head goal type!");
                 }
                 break;
             case "targetlocation":
                 try {
                     getOrCreateGoalFactory(factory).withTargetLocation(parseLocation(((RealPlayer)player).getBukkitPlayer(), value));
                 } catch (IllegalArgumentException ex) {
-                    sender.sendMessage(new ComponentBuilder("Invalid input! Could not parse target location!").color(ChatColor.RED).create());
+                    sender.sendMessage("Invalid input! Could not parse target location!");
                 }
                 break;
             case "targetentity":
@@ -173,14 +173,14 @@ public class FactoryCommand extends McmeEntitiesCommandHandler {
                 if(target != null) {
                     getOrCreateGoalFactory(factory).withTargetEntity(target);
                 } else {
-                    sender.sendMessage(new ComponentBuilder("Invalid input! Target entity not found!").color(ChatColor.RED).create());
+                    sender.sendMessage("Invalid input! Target entity not found!");
                 }
                 break;
             case "headpitchcenter":
                 try {
                     factory.withHeadPitchCenter(parseVector(((RealPlayer)player).getBukkitPlayer(), value));
                 } catch (IllegalArgumentException ex) {
-                    sender.sendMessage(new ComponentBuilder("Invalid input! Could not parse pitch center!").color(ChatColor.RED).create());
+                    sender.sendMessage("Invalid input! Could not parse pitch center!");
                 }
                 break;
             case "speechballoonlayout":
@@ -189,14 +189,14 @@ public class FactoryCommand extends McmeEntitiesCommandHandler {
                     factory.withSpeechBalloonLayout(new SpeechBalloonLayout(SpeechBalloonLayout.Position.valueOf(split[0]),
                                                                             SpeechBalloonLayout.Width.valueOf(split[1])));
                 } catch (IllegalArgumentException | ArrayIndexOutOfBoundsException ex) {
-                    sender.sendMessage(new ComponentBuilder("Invalid input! Could not parse speech balloon layout!").color(ChatColor.RED).create());
+                    sender.sendMessage("Invalid input! Could not parse speech balloon layout!");
                 }
                 break;
             case "mouth":
                 try {
                     factory.withMouth(parseVector(((RealPlayer)player).getBukkitPlayer(), value));
                 } catch (IllegalArgumentException ex) {
-                    sender.sendMessage(new ComponentBuilder("Invalid input! Could not parse mouth position!").color(ChatColor.RED).create());
+                    sender.sendMessage("Invalid input! Could not parse mouth position!");
                 }
                 break;
             case "manualanimation":
@@ -206,84 +206,84 @@ public class FactoryCommand extends McmeEntitiesCommandHandler {
                 try {
                     factory.withHeadPoseDelay(Integer.parseInt(value));
                 } catch (NumberFormatException ex) {
-                    sender.sendMessage(new ComponentBuilder("Invalid input! Could not parse integer for head pose delay!").color(ChatColor.RED).create());
+                    sender.sendMessage("Invalid input! Could not parse integer for head pose delay!");
                 }
                 break;
             case "viewdistance":
                 try {
                     factory.withViewDistance(Integer.parseInt(value));
                 } catch (NumberFormatException ex) {
-                    sender.sendMessage(new ComponentBuilder("Invalid input! Could not parse integer for viewDistance!").color(ChatColor.RED).create());
+                    sender.sendMessage("Invalid input! Could not parse integer for viewDistance!");
                 }
                 break;
             case "maxrotationstep":
                 try {
                     factory.withMaxRotationStep(Float.parseFloat(value));
                 } catch (NumberFormatException ex) {
-                    sender.sendMessage(new ComponentBuilder("Invalid input! Could not parse float for maxRotationStep!").color(ChatColor.RED).create());
+                    sender.sendMessage("Invalid input! Could not parse float for maxRotationStep!");
                 }
                 break;
             case "maxrotationstepflight":
                 try {
                     factory.withMaxRotationStepFlight(Float.parseFloat(value));
                 } catch (NumberFormatException ex) {
-                    sender.sendMessage(new ComponentBuilder("Invalid input! Could not parse float for maxRotationStepFlight!").color(ChatColor.RED).create());
+                    sender.sendMessage("Invalid input! Could not parse float for maxRotationStepFlight!");
                 }
                 break;
             case "updateinterval":
                 try {
                     factory.withUpdateInterval(Integer.parseInt(value));
                 } catch (NumberFormatException ex) {
-                    sender.sendMessage(new ComponentBuilder("Invalid input! Could not parse integer for update interval!").color(ChatColor.RED).create());
+                    sender.sendMessage("Invalid input! Could not parse integer for update interval!");
                 }
                 break;
             case "jumpheight":
                 try {
                     factory.withJumpHeight(Integer.parseInt(value));
                 } catch (NumberFormatException ex) {
-                    sender.sendMessage(new ComponentBuilder("Invalid input! Could not parse integer for jump height!").color(ChatColor.RED).create());
+                    sender.sendMessage("Invalid input! Could not parse integer for jump height!");
                 }
                 break;
             case "knockbackbase":
                 try {
                     factory.withKnockBackBase(Float.parseFloat(value));
                 } catch (NumberFormatException ex) {
-                    sender.sendMessage(new ComponentBuilder("Invalid input! Could not parse float for knockBackBase!").color(ChatColor.RED).create());
+                    sender.sendMessage("Invalid input! Could not parse float for knockBackBase!");
                 }
                 break;
             case "knockbackperdamage":
                 try {
                     factory.withKnockBackPerDamage(Float.parseFloat(value));
                 } catch (NumberFormatException ex) {
-                    sender.sendMessage(new ComponentBuilder("Invalid input! Could not parse float for knockBackPerDamage!").color(ChatColor.RED).create());
+                    sender.sendMessage("Invalid input! Could not parse float for knockBackPerDamage!");
                 }
                 break;
             case "saddlepoint":
                 try {
                     factory.withSaddlePoint(parseVector(((RealPlayer)player).getBukkitPlayer(), value));
                 } catch (IllegalArgumentException ex) {
-                    sender.sendMessage(new ComponentBuilder("Invalid input! Could not parse saddle position!").color(ChatColor.RED).create());
+                    sender.sendMessage("Invalid input! Could not parse saddle position!");
                 }
                 break;
             case "sitpoint":
                 try {
                     factory.withSitPoint(parseVector(((RealPlayer)player).getBukkitPlayer(), value));
                 } catch (IllegalArgumentException ex) {
-                    sender.sendMessage(new ComponentBuilder("Invalid input! Could not parse sit point!").color(ChatColor.RED).create());
+                    sender.sendMessage("Invalid input! Could not parse sit point!");
                 }
                 break;
             case "attackpoint":
                 try {
                     factory.withAttackPoint(parseVector(((RealPlayer)player).getBukkitPlayer(), value));
                 } catch (IllegalArgumentException ex) {
-                    sender.sendMessage(new ComponentBuilder("Invalid input! Could not parse attack point!").color(ChatColor.RED).create());
+                    sender.sendMessage("Invalid input! Could not parse attack point!");
                 }
                 break;
             case "attackdelay":
                 try {
                     factory.withAttackDelay(Integer.parseInt(value));
                 } catch (NumberFormatException ex) {
-                    sender.sendMessage(new ComponentBuilder("Invalid input! Could not parse attack delay!").color(ChatColor.RED).create());
+                    sender.sendMessage("Invalid input! Could not parse attack delay!");
                 }
                 break;
             case "flightlevel":
@@ -291,7 +291,7 @@ public class FactoryCommand extends McmeEntitiesCommandHandler {
                 try {
                     goalFactory.withFlightLevel(Double.parseDouble(value));
                 } catch (NumberFormatException ex) {
-                    sender.sendMessage(new ComponentBuilder("Invalid input! Could not parse double for flight level!").color(ChatColor.RED).create());
+                    sender.sendMessage("Invalid input! Could not parse double for flight level!");
                 }
                 break;
             case "attackpitch":
@@ -299,7 +299,7 @@ public class FactoryCommand extends McmeEntitiesCommandHandler {
                 try {
                     goalFactory.withAttackPitch(Float.parseFloat(value));
                 } catch (NumberFormatException ex) {
-                    sender.sendMessage(new ComponentBuilder("Invalid input! Could not parse double for attack pitch!").color(ChatColor.RED).create());
+                    sender.sendMessage("Invalid input! Could not parse double for attack pitch!");
                 }
                 break;
             case "dive":
@@ -307,21 +307,21 @@ public class FactoryCommand extends McmeEntitiesCommandHandler {
                 try {
                     goalFactory.withDive(Double.parseDouble(value));
                 } catch (NumberFormatException ex) {
-                    sender.sendMessage(new ComponentBuilder("Invalid input! Could not parse double for dive!").color(ChatColor.RED).create());
+                    sender.sendMessage("Invalid input! Could not parse double for dive!");
                 }
                 break;
             case "color":
                 try {
                     factory.withHorseColor(Horse.Color.valueOf(value.toUpperCase()));
                 } catch (IllegalArgumentException ex) {
-                    sender.sendMessage(new ComponentBuilder("Invalid input! Could not parse horse color!").color(ChatColor.RED).create());
+                    sender.sendMessage("Invalid input! Could not parse horse color!");
                 }
                 break;
             case "style":
                 try {
                     factory.withHorseStyle(Horse.Style.valueOf(value.toUpperCase()));
                 } catch (IllegalArgumentException ex) {
-                    sender.sendMessage(new ComponentBuilder("Invalid input! Could not parse horse style!").color(ChatColor.RED).create());
+                    sender.sendMessage("Invalid input! Could not parse horse style!");
                 }
                 break;
             case "saddle":
@@ -357,35 +357,35 @@ public class FactoryCommand extends McmeEntitiesCommandHandler {
                 }
                 break;
             default:
-                sender.sendMessage(new ComponentBuilder("Property " + property +" could not be changed.").color(ChatColor.RED).create());
+                sender.sendMessage("Property " + property +" could not be changed.");
                 return 0;
         }
-        sender.sendMessage(new ComponentBuilder(property + " set to " + value + ".").create());
+        sender.sendMessage(property + " set to " + value + ".");
         return 0;
     }
 
     private void showFactory(BukkitCommandSender player) {
         VirtualEntityFactory factory = player.getEntityFactory();
         VirtualEntityGoalFactory goalFactory = factory.getGoalFactory();
-        player.sendMessage(new ComponentBuilder("Entity Factory Settings:").create());
-        player.sendMessage(new ComponentBuilder("Entity type: ").append(factory.getType().name()).create());
-        player.sendMessage(new ComponentBuilder("Movement type: ").append(factory.getMovementType().name()).create());
-        player.sendMessage(new ComponentBuilder("Name: ").append(factory.getName()).create());
-        player.sendMessage(new ComponentBuilder("Display name: ").append(factory.getDisplayName()).create());
-        player.sendMessage(new ComponentBuilder("Display name position: ").append(""+factory.getDisplayNamePosition()).create());
-        player.sendMessage(new ComponentBuilder("Entity type: ").append(factory.getDataFile()).create());
-        player.sendMessage(new ComponentBuilder("Use Blacklist: ").append(""+factory.hasBlackList()).create());
-        player.sendMessage(new ComponentBuilder("UUID: ").append(""+factory.getUniqueId()).create());
-        player.sendMessage(new ComponentBuilder("Entity Location: ").append(""+factory.getLocation()).create());
-        player.sendMessage(new ComponentBuilder("Max rotation step: ").append(""+factory.getMaxRotationStep()).create());
-        player.sendMessage(new ComponentBuilder("Max rotation step in flight: ").append(""+factory.getMaxRotationStepFlight()).create());
-        player.sendMessage(new ComponentBuilder("Update interval in ticks: ").append(""+factory.getUpdateInterval()).create());
-        player.sendMessage(new ComponentBuilder("View distance in blocks: ").append(""+factory.getViewDistance()).create());
-        player.sendMessage(new ComponentBuilder("Jump height in blocks: ").append(""+factory.getJumpHeight()).create());
-        player.sendMessage(new ComponentBuilder("Mouth position: ").append(""+factory.getMouth()).create());
-        player.sendMessage(new ComponentBuilder("Entity Location: ").append(""+factory.getLocation()).create());
-        player.sendMessage(new ComponentBuilder("Base Knockback: ").append(""+factory.getKnockBackBase()).create());
-        player.sendMessage(new ComponentBuilder("Knockback per Damage: ").append(""+factory.getKnockBackPerDamage()).create());
+        player.sendMessage("Entity Factory Settings:");
+        player.sendMessage("Entity type: "+factory.getType().name());
+        player.sendMessage("Movement type: "+factory.getMovementType().name());
+        player.sendMessage("Name: "+factory.getName());
+        player.sendMessage("Display name: "+factory.getDisplayName());
+        player.sendMessage("Display name position: "+""+factory.getDisplayNamePosition());
+        player.sendMessage("Entity type: "+factory.getDataFile());
+        player.sendMessage("Use Blacklist: "+""+factory.hasBlackList());
+        player.sendMessage("UUID: "+""+factory.getUniqueId());
+        player.sendMessage("Entity Location: "+""+factory.getLocation());
+        player.sendMessage("Max rotation step: "+""+factory.getMaxRotationStep());
+        player.sendMessage("Max rotation step in flight: "+""+factory.getMaxRotationStepFlight());
+        player.sendMessage("Update interval in ticks: "+""+factory.getUpdateInterval());
+        player.sendMessage("View distance in blocks: "+""+factory.getViewDistance());
+        player.sendMessage("Jump height in blocks: "+""+factory.getJumpHeight());
+        player.sendMessage("Mouth position: "+""+factory.getMouth());
+        player.sendMessage("Entity Location: "+""+factory.getLocation());
+        player.sendMessage("Base Knockback: "+""+factory.getKnockBackBase());
+        player.sendMessage("Knockback per Damage: "+""+factory.getKnockBackPerDamage());
 
     }
 

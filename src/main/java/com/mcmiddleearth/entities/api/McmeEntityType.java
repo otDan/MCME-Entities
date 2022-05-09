@@ -115,7 +115,10 @@ public class McmeEntityType {
                                             || bukkitEntityType.equals(EntityType.THROWN_EXP_BOTTLE)
                                             || bukkitEntityType.equals(EntityType.SPLASH_POTION)
                                             || bukkitEntityType.equals(EntityType.TRIDENT)
-                                            || bukkitEntityType.equals(EntityType.ENDER_PEARL));
+                                            || bukkitEntityType.equals(EntityType.ENDER_PEARL)
+        //CUSTOM
+                                            || bukkitEntityType.equals(EntityType.valueOf("OLDGUNS_BULLET_PROJECTILE"))
+        );
     }
 
     @Override

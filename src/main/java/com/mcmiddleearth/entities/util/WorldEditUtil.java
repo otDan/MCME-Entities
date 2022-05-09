@@ -59,13 +59,13 @@ public class WorldEditUtil {
         }
         if(selection instanceof Polygonal2DRegion) {
             return ((Polygonal2DRegion) selection).getPoints().stream()
-                    .map(blockVector -> new Vector(blockVector.getX(),selection.getMinimumPoint().getY(),blockVector.getZ())).collect(Collectors.toList());
+                    .map(blockVector -> new Vector(blockVector.getX(), selection.getMinimumPoint().getY(), blockVector.getZ())).collect(Collectors.toList());
         }
         if(selection instanceof CuboidRegion) {
             List<Vector> result = new ArrayList<>();
-            BlockVector3 vec3 = ((CuboidRegion) selection).getMinimumPoint();
+            BlockVector3 vec3 = selection.getMinimumPoint();
             result.add(new Vector(vec3.getX(),vec3.getY(), vec3.getZ()));
-            vec3 = ((CuboidRegion) selection).getMaximumPoint();
+            vec3 = selection.getMaximumPoint();
             result.add(new Vector(vec3.getX(),vec3.getY(), vec3.getZ()));
             return result;
         }

@@ -57,9 +57,9 @@ public class SaveCommand extends McmeEntitiesCommandHandler {
                 }
             }
             writer.endArray();
-            sender.sendMessage(new ComponentBuilder(counter + " entities save to file '"+file+"'.").create());
+            sender.sendMessage(counter + " entities save to file '"+file+"'.");
         } catch (IOException e) {
-            sender.sendMessage(new ComponentBuilder("File output error.").color(ChatColor.RED).create());
+            sender.sendMessage("File output error.");
         }
         return 0;
     }
